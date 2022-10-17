@@ -1,5 +1,5 @@
 function computerPlay() {
-    let choises = ["rock", "paper", "scissors"];
+    const choises = ["rock", "paper", "scissors"];
     return choises[Math.floor(Math.random() * 3)];
 }
 const computerSelection = computerPlay();
@@ -31,16 +31,14 @@ let tieGames = 0;
 function game() {
     for (let i = 0; i < 5; i++) {
         const playerSelection = prompt("What are you picking? Rock, Paper, Scissors").toLowerCase();
-
-
-        const computerSelection = computerPlay();
-        console.log("You choose: " + playerSelection.toLowerCase());
         if (!inputOptions.includes(playerSelection)) {
             i--;
             console.log("Please enter a right choice!");
             continue;
         }
 
+        const computerSelection = computerPlay();
+        console.log("You choose: " + playerSelection.toLowerCase());
         console.log("The computer choose: " + computerSelection);
         console.log(playRound(playerSelection, computerSelection));
         console.log('Player score:', playerScore);
