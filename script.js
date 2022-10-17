@@ -3,7 +3,7 @@ function computerPlay() {
     return choises[Math.floor(Math.random() * 3)];
 }
 const computerSelection = computerPlay();
-
+const inputOptions = ["rock", "paper", "scissors"];
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
@@ -24,17 +24,23 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-
 let playerScore = 0;
 let computerScore = 0;
 let tieGames = 0;
 
-
 function game() {
     for (let i = 0; i < 5; i++) {
         const playerSelection = prompt("What are you picking? Rock, Paper, Scissors").toLowerCase();
+
+
         const computerSelection = computerPlay();
         console.log("You choose: " + playerSelection.toLowerCase());
+        if (!inputOptions.includes(playerSelection)) {
+            i--;
+            console.log("Please enter a right choice!");
+            continue;
+        }
+
         console.log("The computer choose: " + computerSelection);
         console.log(playRound(playerSelection, computerSelection));
         console.log('Player score:', playerScore);
